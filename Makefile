@@ -7,6 +7,5 @@ copy-dotfiles:
 	@find . -name ".*" -type f | xargs -Ix ln x ~/x 2> /dev/null || true
 
 fish-config:
-	@echo "Appending config.fish to ~/.config/fish/config.fish..."
-	@ echo "\n" >> ${FISH_CONFIG}
-	@ cat config.fish >> ${FISH_CONFIG}
+	@ echo "Adding evalutation of config.fish to ${FISH_CONFIG}..."
+	@ echo "\neval (cat ${PWD}/config.fish)" >> ${FISH_CONFIG}
